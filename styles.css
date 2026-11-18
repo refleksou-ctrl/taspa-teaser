@@ -154,9 +154,22 @@ i { font-family: var(--sub); font-style: italic; }
   .plates .picto { transition: transform .2s ease-out, filter .2s ease-out; }
   .plates li:hover { border-color: rgba(255,255,255,.4); }
   .plates li:hover .picto { transform: translateY(-4px); filter: drop-shadow(0 1px .5px rgba(13,20,23,.55)) drop-shadow(0 5px 6px rgba(13,20,23,.45)); }
-  .btn { transition: transform .15s ease-out; }
+  /* Button hover = Figma State=Hover: fill shifts one tone, arrow nudges along the way */
+  .btn { transition: background-color .15s ease-out, transform .15s ease-out; }
+  .btn .arrow { transition: transform .2s var(--ease); }
+  .btn:hover { background: var(--cream); }
+  .btn:hover .arrow { transform: translateX(3px); }
   .btn:active { transform: scale(.98); }
+  /* Text links: underline draws in */
+  .footer__info a:not(.btn), .footer__links a, .lang a:not([aria-current]) { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .25s var(--ease), opacity .15s; }
+  .footer__info a:not(.btn):hover, .footer__links a:hover { background-size: 100% 1px; }
+  .lang a:not([aria-current]):hover { opacity: 1; }
 }
+
+/* FOCUS = Figma State=Focus: offset ring, sage on dark, dark on light (keyboard only) */
+a:focus-visible, .btn:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; border-radius: 4px; }
+.btn:focus-visible { border-radius: 999px; box-shadow: 0 0 0 2px var(--dark); outline: 3px solid var(--sage); outline-offset: 2px; }
+.light a:focus-visible { outline-color: var(--dark); }
 
 /* REDUCED MOTION — everything visible and still */
 @media (prefers-reduced-motion: reduce) {
