@@ -108,15 +108,16 @@ i { font-family: var(--sub); font-style: italic; }
 .sauna { padding-block: var(--section); }
 .sauna__row { display: flex; flex-direction: column; gap: var(--block); }
 .signset { --sign: clamp(44px, 5.6vw, 80px); display: flex; align-items: center; gap: 16px; }
-/* pictogram spans both lines of the set (2 × line-height 1.05) */
-.signset__picto { width: calc(var(--sign) * 2.1); height: calc(var(--sign) * 2.1); fill: none; stroke: currentColor; stroke-width: 2.15; flex: 0 0 auto; }
+/* pictogram spans both lines of the set (1.05 + 1.05 × 1.1 ≈ 2.2) */
+.signset__picto { width: calc(var(--sign) * 2.2); height: calc(var(--sign) * 2.2); fill: none; stroke: currentColor; stroke-width: 2.15; flex: 0 0 auto; }
 .signset__names { display: flex; flex-direction: column; }
 /* Pronunciation sits on the baseline and rises so its top meets the x-height of the big word.
    --xh is computed in the big word's font (registered property), 1cap in the small text's font. */
 @property --xh { syntax: '<length>'; inherits: true; initial-value: 0px; }
 .signset__et { font-size: var(--sign); --xh: 1ex; display: block; white-space: nowrap; }
 .signset__et small { display: inline-block; margin-left: .2em; font-family: var(--body); font-weight: 400; font-size: clamp(16px, 1.4vw, 20px); letter-spacing: 0; vertical-align: baseline; position: relative; bottom: calc(var(--xh) - 1cap); }
-.signset__en { font-family: var(--sub); font-style: italic; font-size: var(--sign); line-height: 1.05; }
+/* EN matches the ET word by cap height, not font size (Ashbury caps 0.67em vs Avant Garde 0.74em) — as on the signs */
+.signset__en { font-family: var(--sub); font-style: italic; font-size: calc(var(--sign) * 1.1); line-height: 1.05; }
 .sauna__text { display: flex; flex-direction: column; gap: 16px; }
 .sauna__text p { font-size: clamp(18px, 1.4vw, 20px); }
 @media (min-width: 900px) {
