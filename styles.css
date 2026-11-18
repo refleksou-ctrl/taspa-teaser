@@ -179,7 +179,7 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--sage); outline-of
 .btn:focus-visible { border-radius: 999px; box-shadow: 0 0 0 2px var(--dark); outline: 3px solid var(--sage); outline-offset: 2px; }
 .light a:focus-visible { outline-color: var(--dark); }
 
-/* SAUNA STEAM — heat rises continuously along each wisp and dissolves at the top */
+/* SAUNA STEAM — heat rises continuously along each wisp  */
 .steam path { stroke-dasharray: .78 .22; animation: steam 3.2s linear infinite; }
 .steam path:nth-child(2) { animation-delay: -1.1s; }
 .steam path:nth-child(3) { animation-delay: -2.2s; }
@@ -190,5 +190,4 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--sage); outline-of
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js [data-reveal], .js .smark .s-half { opacity: 1 !important; transform: none !important; }
   .steam path { stroke-dasharray: none; }
-  .steam { mask: none; }
 }
