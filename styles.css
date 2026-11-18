@@ -153,7 +153,8 @@ i { font-family: var(--sub); font-style: italic; }
   .plates li { transition: border-color .2s ease-out; }
   .plates .picto { transition: transform .2s ease-out, filter .2s ease-out; }
   .plates li:hover { border-color: rgba(255,255,255,.4); }
-  .plates li:hover .picto { transform: translateY(-4px); filter: drop-shadow(0 1px .5px rgba(13,20,23,.55)) drop-shadow(0 5px 6px rgba(13,20,23,.45)); }
+  /* Relief: lifted face + visible extruded edge (2 stacked hard shadows) + tight cast shadow */
+  .plates li:hover .picto { transform: translateY(-3px); filter: drop-shadow(0 1px 0 #B9BEA8) drop-shadow(0 1.5px 0 #8E9484) drop-shadow(0 4px 3px rgba(0,0,0,.55)) drop-shadow(0 10px 10px rgba(0,0,0,.35)); }
   /* Button hover = Figma State=Hover: fill shifts one tone, arrow nudges along the way */
   .btn { transition: background-color .15s ease-out, transform .15s ease-out; }
   .btn .arrow { transition: transform .2s var(--ease); }
