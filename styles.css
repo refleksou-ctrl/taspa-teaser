@@ -72,17 +72,17 @@ i { font-family: var(--sub); font-style: italic; }
 }
 
 /* NAME BAND */
-.band { background: var(--sage); overflow: hidden; padding-block: 24px; }
+/* Name band follows the facade frieze: ET bold, pronunciation regular at the same size,
+   EN italic matched by cap height — one baseline, no separators, space between groups. */
+.band { --band: clamp(20px, 2vw, 28px); background: var(--sage); overflow: hidden; padding-block: 24px; font-size: var(--band); line-height: 1.2; }
 .band__track { display: flex; white-space: nowrap; width: max-content; animation: marquee 140s linear infinite; }
-.band__group { display: flex; gap: 32px; padding-right: 32px; min-width: 100vw; flex-shrink: 0; }
-.band__group span { display: inline-flex; align-items: baseline; gap: 8px; }
-.band__group span::before { content: "•"; margin-right: 24px; opacity: .5; }
-@media (max-width: 899px) { .band__group { gap: 14px; padding-right: 14px; } .band__group span::before { margin-right: 14px; } }
+.band__group { display: flex; gap: 1.6em; padding-right: 1.6em; min-width: 100vw; flex-shrink: 0; }
+.band__group span { display: inline-flex; align-items: baseline; gap: .3em; }
 .band.is-offscreen .band__track, .signset.is-offscreen .steam path { animation-play-state: paused; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.band b { font-family: var(--head); font-size: clamp(22px, 2vw, 28px); }
-.band small { font-size: 14px; }
-.band i { font-size: clamp(20px, 1.7vw, 24px); }
+.band b { font-family: var(--head); font-size: 1em; }
+.band small { font-family: var(--body); font-weight: 400; font-size: 1em; letter-spacing: -.01em; }
+.band i { font-size: 1.1em; }
 
 /* SERVICES */
 .services { padding-block: var(--section) calc(var(--section) / 2); }
