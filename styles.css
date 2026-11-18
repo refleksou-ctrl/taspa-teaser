@@ -71,9 +71,9 @@ i { font-family: var(--sub); font-style: italic; }
 
 /* NAME BAND */
 .band { background: var(--sage); overflow: hidden; padding-block: 24px; }
-.band__track { display: flex; white-space: nowrap; width: max-content; animation: marquee 70s linear infinite; }
+.band__track { display: flex; white-space: nowrap; width: max-content; animation: marquee 140s linear infinite; }
 .band:hover .band__track { animation-play-state: paused; }
-.band__group { display: flex; gap: 32px; padding-right: 32px; }
+.band__group { display: flex; gap: 32px; padding-right: 32px; min-width: 100vw; flex-shrink: 0; }
 .band__group span { display: inline-flex; align-items: baseline; gap: 8px; }
 .band__group span::before { content: "•"; margin-right: 24px; opacity: .5; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
