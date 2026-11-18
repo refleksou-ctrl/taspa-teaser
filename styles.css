@@ -13,6 +13,7 @@
   --sub: "Taspa Sub", "EB Garamond", Georgia, serif;
   --body: "Inter", system-ui, sans-serif;
   --margin: 16px; --section: 64px; --block: 40px; --gutter: 12px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 @media (min-width: 900px) { :root { --margin: 80px; --section: 120px; --block: 64px; --gutter: 20px; } }
 
@@ -34,9 +35,19 @@ i { font-family: var(--sub); font-style: italic; }
 .picto { width: 48px; height: 48px; fill: none; stroke: currentColor; stroke-width: 2.15; }
 .arrow { width: 1em; height: 1em; color: var(--coral); }
 
-/* HERO */
-.hero { position: relative; min-height: 700px; color: var(--white); display: flex; flex-direction: column; justify-content: space-between;
-  background: linear-gradient(180deg, rgba(46,60,65,.35) 0%, rgba(46,60,65,0) 18%, rgba(46,60,65,0) 42%, rgba(46,60,65,.6) 68%, rgba(46,60,65,.95) 100%), url("img/exterior.jpg") center 60% / cover no-repeat; }
+/* HERO — photo and scrim on their own layers so the photo can settle (transform only) */
+.hero { position: relative; isolation: isolate; overflow: hidden; min-height: 700px; color: var(--white); display: flex; flex-direction: column; justify-content: space-between; }
+.hero::before, .hero::after { content: ""; position: absolute; inset: 0; }
+.hero::before { z-index: -2; background: url("img/exterior.jpg") center 60% / cover no-repeat; transform-origin: 50% 60%; animation: settle 2.4s var(--ease) both; }
+.hero::after { z-index: -1; background: linear-gradient(180deg, rgba(46,60,65,.35) 0%, rgba(46,60,65,0) 18%, rgba(46,60,65,0) 42%, rgba(46,60,65,.6) 68%, rgba(46,60,65,.95) 100%); }
+.hero__bar { animation: rise .9s var(--ease) .1s both; }
+.hero h1 { animation: rise 1s var(--ease) .35s both; }
+.hero .lead { animation: rise 1s var(--ease) .5s both; }
+.opening { animation: rise 1s var(--ease) .7s both; }
+.opening .arrow { animation: nudge 1.2s var(--ease) 1.5s both; }
+@keyframes settle { from { transform: scale(1.06); } to { transform: none; } }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes nudge { 0% { transform: translateX(-6px); opacity: 0; } 100% { transform: none; opacity: 1; } }
 @media (min-width: 900px) { .hero { min-height: 800px; } }
 .hero__bar { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; width: 100%; }
 .logo svg { width: 116px; height: auto; aspect-ratio: 741 / 113; fill: currentColor; }
@@ -60,9 +71,12 @@ i { font-family: var(--sub); font-style: italic; }
 
 /* NAME BAND */
 .band { background: var(--sage); overflow: hidden; padding-block: 24px; }
-.band__track { display: flex; gap: 32px; padding-left: var(--margin); white-space: nowrap; width: max-content; }
-.band__track span { display: inline-flex; align-items: baseline; gap: 8px; }
-.band__track span + span::before { content: "•"; margin-right: 24px; opacity: .5; }
+.band__track { display: flex; white-space: nowrap; width: max-content; animation: marquee 70s linear infinite; }
+.band:hover .band__track { animation-play-state: paused; }
+.band__group { display: flex; gap: 32px; padding-right: 32px; }
+.band__group span { display: inline-flex; align-items: baseline; gap: 8px; }
+.band__group span::before { content: "•"; margin-right: 24px; opacity: .5; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .band b { font-family: var(--head); font-size: clamp(22px, 2vw, 28px); }
 .band small { font-size: 14px; }
 .band i { font-size: clamp(20px, 1.7vw, 24px); }
@@ -122,4 +136,30 @@ i { font-family: var(--sub); font-style: italic; }
 @media (min-width: 900px) {
   .footer__row { flex-direction: row; justify-content: space-between; align-items: center; }
   .footer__info { flex-direction: row; align-items: center; gap: 32px; }
+}
+
+/* SCROLL REVEALS (set by motion.js; without JS nothing is hidden) */
+.js [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: calc(var(--i, 0) * 70ms); }
+.js [data-reveal].is-in { opacity: 1; transform: none; }
+/* S mark: the two halves slide together along the S diagonal */
+.js .smark[data-reveal] { transform: none; }
+.s-half { transition: transform 1.2s var(--ease), opacity 1.2s var(--ease); }
+.js .smark:not(.is-in) .s-half--top { transform: translate(-14px, -10px); opacity: 0; }
+.js .smark:not(.is-in) .s-half--bot { transform: translate(14px, 10px); opacity: 0; }
+.s-half--bot { transition-delay: .12s; }
+
+/* RELIEF HOVER — pictogram lifts off the plate (pointer devices only) */
+@media (hover: hover) {
+  .plates li { transition: border-color .2s ease-out; }
+  .plates .picto { transition: transform .2s ease-out, filter .2s ease-out; }
+  .plates li:hover { border-color: rgba(255,255,255,.4); }
+  .plates li:hover .picto { transform: translateY(-4px); filter: drop-shadow(0 1px .5px rgba(13,20,23,.55)) drop-shadow(0 5px 6px rgba(13,20,23,.45)); }
+  .btn { transition: transform .15s ease-out; }
+  .btn:active { transform: scale(.98); }
+}
+
+/* REDUCED MOTION — everything visible and still */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js [data-reveal], .js .smark .s-half { opacity: 1 !important; transform: none !important; }
 }
