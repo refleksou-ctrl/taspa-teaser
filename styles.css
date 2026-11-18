@@ -78,6 +78,7 @@ i { font-family: var(--sub); font-style: italic; }
 .band__group { display: flex; gap: 32px; padding-right: 32px; min-width: 100vw; flex-shrink: 0; }
 .band__group span { display: inline-flex; align-items: baseline; gap: 8px; }
 .band__group span::before { content: "•"; margin-right: 24px; opacity: .5; }
+@media (max-width: 899px) { .band__group { gap: 14px; padding-right: 14px; } .band__group span::before { margin-right: 14px; } }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .band b { font-family: var(--head); font-size: clamp(22px, 2vw, 28px); }
 .band small { font-size: 14px; }
