@@ -36,7 +36,7 @@ i { font-family: var(--sub); font-style: italic; }
 .arrow { width: 1em; height: 1em; color: var(--coral); }
 
 /* HERO — photo and scrim on their own layers so the photo can settle (transform only) */
-.hero { position: relative; isolation: isolate; overflow: hidden; min-height: 700px; color: var(--white); display: flex; flex-direction: column; justify-content: space-between; }
+.hero { position: relative; isolation: isolate; overflow: hidden; min-height: min(700px, 100vh); min-height: min(700px, 100svh); color: var(--white); display: flex; flex-direction: column; justify-content: space-between; }
 .hero::before, .hero::after { content: ""; position: absolute; inset: 0; }
 .hero::before { z-index: -2; background: url("img/exterior.jpg") center 60% / cover no-repeat; transform-origin: 50% 60%; animation: settle 2.4s var(--ease) both; }
 .hero::after { z-index: -1; background: linear-gradient(180deg, rgba(46,60,65,.35) 0%, rgba(46,60,65,0) 18%, rgba(46,60,65,0) 42%, rgba(46,60,65,.6) 68%, rgba(46,60,65,.95) 100%); }
@@ -48,7 +48,7 @@ i { font-family: var(--sub); font-style: italic; }
 @keyframes settle { from { transform: scale(1.06); } to { transform: none; } }
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes nudge { 0% { transform: translateX(-6px); opacity: 0; } 100% { transform: none; opacity: 1; } }
-@media (min-width: 900px) { .hero { min-height: 800px; } }
+@media (min-width: 900px) { .hero { min-height: min(800px, 100vh); min-height: min(800px, 100svh); } }
 .hero__bar { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; width: 100%; }
 .logo svg { width: 116px; height: auto; aspect-ratio: 741 / 113; fill: currentColor; }
 @media (min-width: 900px) { .logo svg { width: 160px; } }
