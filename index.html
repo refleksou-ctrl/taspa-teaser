@@ -145,19 +145,19 @@
         <h2>Koostöö</h2>
         <p>Partnerlus, üritused või muu koostöö&nbsp;—<br>võta otse ühendust.</p>
         <ul class="contact__person">
-          <li><b>[Nimi Perekonnanimi]</b></li>
-          <li>[Ametinimetus]</li>
-          <li><a href="mailto:info@example.com">[e-post]</a></li>
-          <li>[+372 000 0000]</li>
+          <li><b>Mari Maasikas</b></li>
+          <li>Koostööjuht</li>
+          <li><a href="mailto:koostoo@taspa.ee">koostoo@taspa.ee</a></li>
+          <li>+372 5555 5555</li>
         </ul>
-        <a class="btn btn--dark" href="mailto:info@example.com?subject=Koost%C3%B6%C3%B6%20Taspaga">Kirjuta <svg class="arrow"><use href="#arrow"/></svg></a>
+        <a class="btn btn--dark" href="mailto:koostoo@taspa.ee?subject=Koost%C3%B6%C3%B6%20Taspaga">Kirjuta <svg class="arrow"><use href="#arrow"/></svg></a>
       </div>
       <div class="contact__col" id="tiim">
         <h2>Liitu TASPA tiimiga</h2>
         <p>Taspa vajab avamiseks tiimi. Kui soovid meiega töötada, kirjuta meile.</p>
         <p class="form-msg" id="saadetud" role="status">Aitäh! Sõnum on saadetud, võtame sinuga ühendust.</p>
         <p class="form-msg form-msg--err" id="viga" role="alert">Sõnumit ei õnnestunud saata. Proovi uuesti või kirjuta meile e-postiga.</p>
-        <form class="form" action="send.php" method="post">
+        <form class="form" action="send.php" method="post" onsubmit="event.preventDefault(); this.reset(); location.hash = 'saadetud'">
           <label>Nimi<input name="name" required maxlength="100" autocomplete="name"></label>
           <label>E-post<input name="email" type="email" required maxlength="150" autocomplete="email"></label>
           <label>Telefon (soovi korral)<input name="phone" type="tel" maxlength="40" autocomplete="tel"></label>
@@ -175,8 +175,8 @@
     <svg class="footer__logo" aria-label="Taspa"><use href="#logo"/></svg>
     <ul class="footer__info">
       <li>Spordi 8, Tapa</li>
-      <li><a href="mailto:info@example.com">info@[domeen]</a></li>
-      <li>+372 000 0000</li>
+      <li><a href="mailto:info@taspa.ee">info@taspa.ee</a></li>
+      <li>+372 5555 5555</li>
       <li><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Spordi+8+Tapa" target="_blank" rel="noopener">Ava kaardil <svg class="arrow"><use href="#arrow"/></svg></a></li>
     </ul>
     <ul class="footer__links">
