@@ -95,6 +95,12 @@ i { font-family: var(--sub); font-style: italic; }
 .plates .picto { margin-bottom: 12px; }
 .plates i { font-size: 20px; }
 .plates p { margin-top: 12px; font-size: 14px; }
+/* Pictograms draw themselves in as their card arrives (pathLength="1" on each symbol path;
+   dash props inherit through <use>). Without JS or with reduced motion they are simply drawn. */
+.plates .picto { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.plates li[data-reveal]:not(.is-in) .picto { stroke-dashoffset: 1; }
+.plates li.is-in .picto { transition: stroke-dashoffset .9s cubic-bezier(0.65, 0, 0.35, 1) calc(var(--i, 0) * 70ms + .15s); }
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 /* Join-the-team card: the one coral plate, the whole card is the link */
 .plates .plate-cta { padding: 0; background: var(--coral); border-color: var(--coral); color: var(--dark); }
 .plate-cta a { flex: 1; display: flex; flex-direction: column; gap: 4px; padding: 16px; text-decoration: none; border-radius: inherit; transition: transform 160ms ease-out; }
@@ -194,8 +200,9 @@ i { font-family: var(--sub); font-style: italic; }
   .band:hover .band__track { animation-play-state: paused; }
   .plates li { transition: border-color .12s ease-out; }
   .plates li:hover { border-color: rgba(255,255,255,.4); transition: border-color .2s ease; }
-  .plate-cta .picto { transition: transform .12s ease-out; }
-  .plate-cta:hover .picto { transform: translateX(4px); transition: transform .2s var(--ease); }
+  .plates li:not(.plate-cta):hover .picto { animation: draw .7s cubic-bezier(0.65, 0, 0.35, 1); }
+  .plates .plate-cta.is-in .picto { transition: stroke-dashoffset .9s cubic-bezier(0.65, 0, 0.35, 1) calc(var(--i, 0) * 70ms + .15s), transform .2s var(--ease); }
+  .plate-cta:hover .picto { transform: translateX(4px); }
   .contact a:not(.btn):hover { text-decoration-thickness: 2px; }
   .btn .arrow { transition: transform .12s ease-out; }
   .btn:hover { background: var(--cream); }
