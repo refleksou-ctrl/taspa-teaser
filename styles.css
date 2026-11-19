@@ -9,7 +9,7 @@
 
 :root {
   --dark: #2E3C41; --coral: #FF6C72; --sage: #C3C8B0; --cream: #F5E9D1; --white: #FFFFFF;
-  --head: "Taspa Head", "Poppins", system-ui, sans-serif;
+  --head: "Taspa Head", "itc-avant-garde-gothic-pro", system-ui, sans-serif;
   --sub: "Taspa Sub", "EB Garamond", Georgia, serif;
   --body: "Inter", system-ui, sans-serif;
   --margin: 16px; --section: 64px; --block: 40px; --gutter: 12px;
