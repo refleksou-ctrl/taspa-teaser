@@ -171,7 +171,7 @@ symbol path[pathLength] { stroke-dasharray: 1; } /* only moving strokes get a da
 .footer__links { flex-direction: row; gap: 24px; }
 .footer__links a { font-weight: 600; text-decoration: none; }
 .footer a { text-decoration: none; }
-.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--white); color: var(--dark); font-family: var(--sub); font-size: 17px; padding: 12px 24px; min-height: 48px; border-radius: 999px; }
+.btn { display: inline-flex; text-decoration: none; align-items: center; gap: 10px; background: var(--white); color: var(--dark); font-family: var(--sub); font-size: 17px; padding: 12px 24px; min-height: 48px; border-radius: 999px; }
 .btn .arrow { color: var(--dark); }
 .legal { margin-top: 24px; font-size: 14px; opacity: .6; }
 @media (min-width: 900px) {
