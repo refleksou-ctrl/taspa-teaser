@@ -96,9 +96,10 @@ i { font-family: var(--sub); font-style: italic; }
 .plates i { font-size: 20px; }
 .plates p { margin-top: 12px; font-size: 14px; }
 /* Pictograms: only the moving part (steam, waves, ball…) draws in as the card arrives, like the sauna sign;
-   the base stays drawn (stroke-dasharray="none" on its paths). pathLength="1" on moving paths;
-   dash props inherit through <use>). Without JS or with reduced motion they are simply drawn. */
-.plates .picto { stroke-dasharray: 1; stroke-dashoffset: 0; }
+   the base has no dash, so it stays drawn. pathLength="1" marks moving paths;
+   the offset inherits through <use>. Without JS or with reduced motion they are simply drawn. */
+.plates .picto { stroke-dashoffset: 0; }
+symbol path[pathLength] { stroke-dasharray: 1; } /* only moving strokes get a dash; the offset inherits from .picto */
 .plates li[data-reveal]:not(.is-in) .picto { stroke-dashoffset: 1; }
 .plates li.is-in .picto { transition: stroke-dashoffset 1.5s cubic-bezier(0.37, 0, 0.63, 1) calc(var(--i, 0) * 100ms + .2s); }
 @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
