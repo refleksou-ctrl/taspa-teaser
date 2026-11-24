@@ -154,6 +154,10 @@ symbol path[pathLength] { stroke-dasharray: 1; } /* only moving strokes get a da
   .news .form .btn { margin-top: 0; }
 }
 
+/* PHOTO BAND (Figma: 300px tall on mobile, 1440×586 on desktop, image anchored to its bottom) */
+.photo { margin: 0; }
+.photo img { display: block; width: 100%; height: clamp(300px, 40.7vw, 586px); object-fit: cover; object-position: 50% 100%; }
+
 /* CONTACT + JOIN THE TEAM */
 .contact { background: var(--sage); color: var(--dark); padding-block: var(--section); scroll-margin-top: 0; }
 .contact__row { display: grid; gap: var(--section); }
