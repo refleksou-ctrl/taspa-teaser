@@ -163,7 +163,10 @@ symbol path[pathLength] { stroke-dasharray: 1; } /* only moving strokes get a da
 .contact__row { display: grid; gap: var(--section); }
 @media (min-width: 900px) { .contact__row { grid-template-columns: 5fr 7fr; gap: var(--block); } }
 .contact__col { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
-.contact__col > p { font-size: clamp(18px, 1.4vw, 20px); max-width: 520px; }
+.contact__col > p { font-size: clamp(18px, 1.4vw, 20px); max-width: 600px; text-wrap: pretty; }
+/* Figma line breaks only where the first line fits its column; narrower screens wrap naturally */
+.br-wide { display: none; }
+@media (min-width: 1280px) { .br-wide { display: inline; } }
 .contact__person { margin-top: 8px; display: flex; flex-direction: column; gap: 4px; font-size: clamp(18px, 1.4vw, 20px); }
 .contact__person b { font-family: var(--head); font-size: clamp(20px, 1.9vw, 24px); }
 .contact__col > .btn { margin-top: 8px; }
