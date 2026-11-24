@@ -85,16 +85,16 @@
 <main>
   <section class="services dark">
     <div class="wrap">
-      <h2>Mis Taspas tuleb</h2>
-      <p class="sublead">Kõik ühe katuse all, avatud aasta ringi.</p>
+      <h2>TASPA spordi- ja vabaajakeskus</h2>
+      <p class="sublead">Liikumine, heaolu ja mõnus ajaveetmine – kõik mugavalt ühe katuse all.</p>
       <ul class="plates">
         <li><svg class="picto" aria-hidden="true"><use href="#p-gym"/></svg><h3>Jõusaal</h3><i>Gym</i><p>Avatud 24/7</p></li>
         <li><svg class="picto" aria-hidden="true"><use href="#p-pool"/></svg><h3>Bassein</h3><i>Pool</i><p>25 m rajad ja lastebassein</p></li>
         <li><svg class="picto" aria-hidden="true"><use href="#p-sauna"/></svg><h3>Saunad</h3><i>Saunas</i><p>Saunarituaalid</p></li>
         <li><svg class="picto" aria-hidden="true"><use href="#p-spa"/></svg><h3>Spaa</h3><i>Spa</i><p>Mullivannid ja lõõgastusala</p></li>
-        <li><svg class="picto" aria-hidden="true"><use href="#p-padel"/></svg><h3>Padel</h3><i>Padel</i><p>Siseväljakud</p></li>
+        <li><svg class="picto" aria-hidden="true"><use href="#p-padel"/></svg><h3>Padel</h3><i>Padel</i><p>Väliväljakud</p></li>
         <li><svg class="picto" aria-hidden="true"><use href="#p-training"/></svg><h3>Treeningud</h3><i>Group training</i><p>Treeningud igale tasemele</p></li>
-        <li><svg class="picto" aria-hidden="true"><use href="#p-resto"/></svg><h3>Taspa Resto</h3><i>Restaurant</i><p>Spordibaar ja toitlustus</p></li>
+        <li><svg class="picto" aria-hidden="true"><use href="#p-resto"/></svg><h3>Taspa Resto</h3><i>Restaurant</i><p>Head maitsed ja erinevad üritused</p></li>
         <li class="plate-cta"><a href="#tiim"><svg class="picto" aria-hidden="true"><use href="#p-join"/></svg><h3>Liitu TASPA tiimiga</h3><i>Join the team</i><p>Vaata lähemalt</p></a></li>
       </ul>
     </div>
@@ -103,8 +103,8 @@
   <section class="concept dark">
     <div class="wrap concept__row">
       <div class="concept__text">
-        <h2>Kohalikele ja kõigile, kes Tapal elavad ja teenivad</h2>
-        <p>Taspa on mõeldud igapäevaseks kasutuseks: hommikune ujumine, õhtune trenn või nädalavahetus perega saunas. Kõik sildid ja info on nii eesti kui inglise keeles.</p>
+        <h2>Parem elu. Sinu moodi.</h2>
+        <p>TASPA on koht kõigile, kes soovivad elada aktiivsemalt, tunda end paremini ja nautida rohkemat. Siia on oodatud nii suured kui väikesed, nii sportlikud ja tegusad kui ka need, kes otsivad lihtsalt hetke iseendale.</p>
       </div>
       <svg class="smark" viewBox="0 0 318 242" role="img" aria-label="Taspa koridor ja riietusruum">
         <defs>
@@ -117,26 +117,17 @@
     </div>
   </section>
 
-  <section class="sauna light">
-    <div class="wrap sauna__row">
-      <div class="signset">
-        <svg class="signset__picto" viewBox="0 0 48 48" aria-hidden="true">
-          <g class="steam">
-            <path pathLength="1" d="M14 27C18.2 22 9.8 14 14 8.5"/>
-            <path pathLength="1" d="M24 27C28.2 22 19.8 14 24 8.5"/>
-            <path pathLength="1" d="M34 27C38.2 22 29.8 14 34 8.5"/>
-          </g>
-          <path d="M7 46V35C7 32.3333 8.33333 31 11 31H37C39.6667 31 41 32.3333 41 35V46"/>
-        </svg>
-        <div class="signset__names">
-          <p class="signset__et">Saun <small>[sɑun]</small></p>
-          <p class="signset__en">Sauna</p>
-        </div>
+  <section class="news light">
+    <div class="wrap news__row">
+      <div class="news__text">
+        <h2>Liitu uudiskirjaga</h2>
+        <p>Värskeimate uudistega kursis olemiseks, liitu meie uudiskirjaga</p>
+        <p class="form-msg" id="liitunud" role="status">Aitäh! Oled uudiskirjaga liitunud.</p>
       </div>
-      <div class="sauna__text">
-        <h2>Saunad on Taspa süda</h2>
-        <p>Saunade valik ja saunarituaalid selguvad avamise eel.</p>
-      </div>
+      <form class="form" onsubmit="event.preventDefault(); this.reset(); location.hash = 'liitunud'">
+        <label>E-post<input name="email" type="email" required maxlength="150" autocomplete="email"></label>
+        <button class="btn" type="submit">Liitu <svg class="arrow"><use href="#arrow"/></svg></button>
+      </form>
     </div>
   </section>
   <section class="contact" id="kontakt">
@@ -154,7 +145,7 @@
       </div>
       <div class="contact__col" id="tiim">
         <h2>Liitu TASPA tiimiga</h2>
-        <p>Taspa vajab avamiseks tiimi. Kui soovid meiega töötada, kirjuta meile.</p>
+        <p>Hea tiim on edu võti. Kui soovid kaasa lüüa TASPA eduloos,<br>siis kirjuta meile!</p>
         <p class="form-msg" id="saadetud" role="status">Aitäh! Sõnum on saadetud, võtame sinuga ühendust.</p>
         <p class="form-msg form-msg--err" id="viga" role="alert">Sõnumit ei õnnestunud saata. Proovi uuesti või kirjuta meile e-postiga.</p>
         <form class="form" action="send.php" method="post" onsubmit="event.preventDefault(); this.reset(); location.hash = 'saadetud'">
