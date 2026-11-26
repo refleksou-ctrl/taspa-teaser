@@ -44,7 +44,7 @@ def rebase(html):   # pages live one folder down
                 .replace('"img/', '"../img/').replace('href="./"', 'href="../"'))
 
 assert news + photo in src
-pages = {'a': news + photo + '  ' + LOC_A, 'b': '  ' + LOC_B + news}
+pages = {'a': news + photo + '  ' + LOC_A, 'b': '  ' + LOC_B + news.replace('news light', 'news dark')}  # B: dark newsletter, as in Figma
 for name, mid in pages.items():
     os.makedirs(name, exist_ok=True)
     open(f'{name}/index.html', 'w').write(rebase(src.replace(news + photo, mid)))
