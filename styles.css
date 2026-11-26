@@ -158,6 +158,46 @@ symbol path[pathLength] { stroke-dasharray: 1; } /* only moving strokes get a da
 .photo { margin: 0; }
 .photo img { display: block; width: 100%; height: clamp(300px, 40.7vw, 586px); object-fit: cover; object-position: 50% 100%; }
 
+/* LOCATION (review versions /a/ and /b/). Map = OSM SVG; marker and chips are HTML on top,
+   placed in % of the 1440×700 map so they stay on their streets at any size. */
+.pin { position: absolute; left: 53.99%; top: 63.99%; display: flex; flex-direction: column; align-items: center; gap: 17px; transform: translate(-50%, calc(-100% + 7px)); pointer-events: none; }
+.pin svg:first-child { width: 160px; height: auto; aspect-ratio: 741 / 113; fill: currentColor; }
+.pin svg:last-child { width: 22px; height: 20px; fill: var(--coral); }
+.osm { position: absolute; right: 8px; bottom: 6px; font-size: 10px; line-height: 1; opacity: .4; text-decoration: none; }
+
+/* A: info + rounded map card */
+.loc { padding-block: var(--section); }
+.loc__row { display: flex; flex-direction: column; gap: var(--block); }
+.loc__info { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.loc__info > p { font-size: clamp(18px, 1.4vw, 20px); }
+.loc__list { width: 100%; border-top: 1px solid rgba(46,60,65,.6); }
+.loc__list li { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-block: 14px; border-bottom: 1px solid rgba(46,60,65,.6); font-size: clamp(16px, 1.4vw, 20px); }
+.loc__list span { flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px; opacity: .8; }
+.loc__list .arrow { color: var(--dark); width: .8em; height: .8em; }
+.loc .btn { background: var(--dark); color: var(--white); }
+.loc .btn .arrow { color: var(--coral); }
+.loc__card { position: relative; overflow: hidden; border-radius: 16px; height: 360px; background: var(--dark); color: var(--cream); }
+.loc__card .map { position: absolute; width: 1440px; height: 700px; left: calc(50% - 777.5px); top: calc(50% - 447.9px); }
+.loc__card .map img { width: 100%; height: 100%; }
+.loc__card .osm { color: var(--cream); }
+@media (min-width: 900px) {
+  .loc__row { flex-direction: row; align-items: center; gap: 64px; }
+  .loc__info { flex: 0 0 min(507px, 40%); }
+  .loc__card { flex: 1; height: 520px; }
+}
+
+/* B: full-width light map with distance chips */
+.locb { position: relative; overflow: hidden; background: var(--cream); }
+.locb .map { position: relative; width: max(100%, 1152px); aspect-ratio: 1440 / 700; left: 50%; transform: translateX(-53.99%); }
+.locb .map img { width: 100%; height: 100%; }
+@media (min-width: 900px) { .locb .map { transform: translateX(-50%); } }
+.locb .pin { color: var(--dark); }
+.chip { position: absolute; display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; border-radius: 4px; background: var(--dark); color: var(--white); white-space: nowrap; }
+.chip b { font-family: var(--head); font-size: 20px; line-height: 1.5; }
+.chip span { font-size: 13px; line-height: 1.4; }
+.chip--jaam { left: 45.66%; top: 5.36%; } .chip--linn { left: 45.92%; top: 20%; } .chip--linnak { left: 38.45%; top: 83.93%; }
+@media (min-width: 900px) { .chip--jaam { left: 46.74%; top: 6.71%; } .chip--linn { left: 46.74%; top: 19.57%; } .chip--linnak { left: 29.86%; top: 88.14%; } }
+
 /* CONTACT + JOIN THE TEAM */
 .contact { background: var(--sage); color: var(--dark); padding-block: var(--section); scroll-margin-top: 0; }
 .contact__row { display: grid; gap: var(--section); }

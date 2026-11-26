@@ -2,7 +2,7 @@
 // Reduced motion: same reveals, opacity only (CSS removes the movement).
 // Without JS everything is simply visible.
 (() => {
-  const targets = ['.services h2', '.services .sublead', '.plates li', '.concept__text', '.smark', '.news__text', '.news .form', '.contact__col', '.footer__row'];
+  const targets = ['.services h2', '.services .sublead', '.plates li', '.concept__text', '.smark', '.news__text', '.news .form', '.loc__info', '.loc__card', '.contact__col', '.footer__row'];
   const els = [...document.querySelectorAll(targets.join(','))];
   document.querySelectorAll('.plates li').forEach((li, i) => li.style.setProperty('--i', i % 4 + Math.floor(i / 4)));
   els.forEach(el => el.setAttribute('data-reveal', ''));
