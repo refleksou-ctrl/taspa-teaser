@@ -47,5 +47,7 @@ assert news + photo in src
 pages = {'a': news + photo + '  ' + LOC_A, 'b': '  ' + LOC_B + news.replace('news light', 'news dark')}  # B: dark newsletter, as in Figma
 for name, mid in pages.items():
     os.makedirs(name, exist_ok=True)
-    open(f'{name}/index.html', 'w').write(rebase(src.replace(news + photo, mid)))
+    html = src.replace(news + photo, mid)
+    html = re.sub(r'\s*<li><a class="btn" href="https://www.google.com/maps[^\n]*</li>', '', html, count=1)  # footer map button: the map section has its own
+    open(f'{name}/index.html', 'w').write(rebase(html))
     print(name, 'ok')
