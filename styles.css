@@ -275,7 +275,7 @@ symbol path[pathLength] { stroke-dasharray: 1; } /* only moving strokes get a da
   .contact a:not(.btn):hover { text-decoration-thickness: 2px; }
   .btn .arrow { transition: transform .12s ease-out; }
   .btn:hover { background: var(--cream); }
-  .contact .btn--dark:hover, .form .btn:hover { background: #3F4F55; }
+  .contact .btn--dark:hover, .form .btn:hover, .loc .btn:hover { background: #3F4F55; }
   .btn:hover .arrow { transform: translateX(3px); transition: transform .2s var(--ease); }
   .footer__info a:not(.btn):hover::after, .footer__links a:hover::after { transform: scaleX(1); transform-origin: left; transition: transform .25s var(--ease); }
   .lang a:not([aria-current]) { transition: opacity .12s ease; }
